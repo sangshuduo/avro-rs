@@ -1,0 +1,11 @@
+[package]
+name = "avro-dump-schema-rs"
+version = "0.1.0"
+authors = ["Shuduo Sang <sangshuduo@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+avrow = "0.2.1"
+anyhow = "1.0.32"
