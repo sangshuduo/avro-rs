@@ -8,7 +8,7 @@ fn main() {
 
     let mut file = std::fs::OpenOptions::new()
         .read(true)
-        .open(&args[1]);
+        .open(&args[1]).unwrap();
 
     let header = Header::from_reader(&mut file);
     println!("{}", header.schema());
