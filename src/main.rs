@@ -4,13 +4,19 @@ use avrow::Header;
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    println!("Hello, {}!", &args[1]);
-
-    let mut file = std::fs::OpenOptions::new()
+    let result = std::fs::OpenOptions::new()
         .read(true)
-        .open(&args[1]).unwrap();
+        .open(&args[1]);
 
-    let header = Header::from_reader(&mut file).unwrap();
-    println!("{}", header.schema());
+    match result {
+        Ok(mut file) => {
+            let header = Header::from_reader(&mut file).unwrap();
+            println!("{}", header.schema());
+        }
+
+        Err(_e) => {
+            println!("Error on processing {}!", &args[1]);
+        }
+    }
 }
 
