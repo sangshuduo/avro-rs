@@ -10,7 +10,7 @@ fn main() {
         .read(true)
         .open(&args[1]).unwrap();
 
-    let header = Header::from_reader(&mut file);
+    let header = Header::from_reader(&mut file).unwrap();
     println!("{}", header.schema());
 }
 
